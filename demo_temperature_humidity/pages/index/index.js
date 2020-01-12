@@ -5,12 +5,7 @@ import IotexplorerClient from '../../iotclient_for_miniprogram/iotclient.js';
 Page({
   data: {
     client: null,
-    deviceData: {},
-    items: [
-      { name: '红色', value: 0, color: "red"},
-      { name: '绿色', value: 1, color: "green" },
-      { name: '蓝色', value: 2, color: "blue" },
-    ]
+    deviceData: {}
   }, 
   onLoad: function (options) {
     console.log("index onLoad")
@@ -91,11 +86,6 @@ Page({
     wx.showLoading()
 
     let data = e.detail.value
-    if (data.power_switch == true) {
-      data.power_switch = 1
-    } else {
-      data.power_switch = 0
-    }
     console.log('form data：', e.detail.value)
 
     // 实例化一个请求对象

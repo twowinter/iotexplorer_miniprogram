@@ -1,5 +1,5 @@
 <view style="display:flex; flex-direction:column; align-items:center;">
-  <image style="width:80px; height:80px;" src="../../images/led.png" mode="cover"></image>
+  <image style="width:80px; height:80px;" src="../../images/temperature_humidity.png" mode="cover"></image>
 </view>
 
 <view class="body">
@@ -22,7 +22,7 @@
   <form bindsubmit="controlDeviceData">
     <view style="display:flex; flex-direction:row; justify-content: space-between;">
       <view style="font-weight: bold;">
-        智能灯 Demo
+        Demo
       </view>
       <view>
         <button type="primary" size="mini" bindtap="queryDeviceData">查询</button>
@@ -31,26 +31,27 @@
     </view>
     <view class="box">
       <view class="cell">
-        <view>开关</view>
-        <view>
-          <switch name="power_switch" checked="{{deviceData.power_switch.Value}}" />
+        <view class="status-left">温度</view>
+        <view class="status-right">
+          <text>{{deviceData.temperature.Value}}℃</text>
         </view>
       </view>
       <view class="cell">
-        <view>颜色</view>
-        <view>
-          <radio-group name="color">
-            <label style="color:{{item.color}}" class="radio" wx:for="{{items}}" wx:key="unique" wx:for-index="idx">
-              <radio color="{{item.color}}" value="{{item.value}}" checked="{{idx == deviceData.color.Value}}" />{{item.name}}
-            </label>
-          </radio-group>
+        <view class="status-left">湿度</view>
+        <view class="status-right">
+          <text>{{deviceData.humidity.Value}}%</text>
         </view>
       </view>
       <view class="cell">
-        <view>亮度</view>
-        <view style="width:80%">
-          <slider name="brightness" min="0" max="100" value="{{deviceData.brightness.Value}}" show-value/>
+        <view class="status-left">上报周期</view>
+        <view class="status-right">
+          <text>{{deviceData.period.Value}}s</text>
         </view>
+      </view>
+      <view class="cell">
+        <view class="status-left">周期调整</view>
+        <input name="period" placeholder="请输入周期" />
+        <view class="status-right">s</view>
       </view>
     </view>
   </form>
