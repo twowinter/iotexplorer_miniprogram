@@ -1,0 +1,45 @@
+<view style="display:flex; flex-direction:column; align-items:center;">
+  <image style="width:80px; height:80px;" src="../../images/flower.png" mode="cover"></image>
+</view>
+
+<view class="body">
+  <view style="font-weight: bold;">
+    设备信息
+  </view>
+  <view class="box">
+    <view class="cell">
+      <view class="status-left">产品ID</view>
+      <view class="status-right">{{productId}}</view>
+    </view>
+    <view class="cell">
+      <view class="status-left">设备名称</view>
+      <view class="status-right">{{deviceName}}</view>
+    </view>
+  </view>
+
+  <text>\n</text>
+
+  <form bindsubmit="controlDeviceData">
+    <view style="display:flex; flex-direction:row; justify-content: space-between;">
+      <view style="font-weight: bold;">
+        浇花器
+      </view>
+      <view>
+        <button type="primary" size="mini" bindtap="queryDeviceData">查询</button>
+        <button style="margin-left:20rpx" type="primary" size="mini" form-type="submit">发送</button>
+      </view>
+    </view>
+    <view class="box">
+      <view class="cell">
+        <view>浇水</view>
+        <view>
+          <switch name="pump_switch" checked="{{deviceData.pump_switch.Value}}" />
+        </view>
+      </view>
+      <view class="cell">
+        <view class="status-left">土壤湿度</view>
+        <view class="status-right">{{deviceData.soil_moisture.Value}}%</view>
+      </view>
+    </view>
+  </form>
+</view>
